@@ -15,7 +15,7 @@ class Celsius extends Temperature{
     function setValue($value) {
         $this->value = $value;
     }
-   
+    
     public function convert($target) {
         switch($target){
             case "fahrenheit";

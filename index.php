@@ -5,8 +5,6 @@ include "view/form.php";
 spl_autoload_register();
 set_exception_handler("myExceptionHandler");
 
-$output_value = "";
-
 if(isset($_POST["convert"])){
     $input_unit = $_POST["input_unit"];
     $input_value = $_POST["input_value"];
@@ -20,11 +18,12 @@ if(isset($_POST["convert"])){
         
     $converter = new classes\Converter($temperature, $output_unit);
     $output_value = $converter->convert();
+    
+    echo "<div class='alert alert-success'>Przeliczona wartość z $input_unit na $output_unit = $output_value</div>";
 }
 
-echo "Przeliczona wartość z $input_unit na $output_unit = $output_value";
 function myExceptionHandler($exception){
-    echo $exception->getMessage();
+    echo "<div class='alert alert-warning'>".$exception->getMessage()."</div>";
 }
 
 include "view/footer.php";
