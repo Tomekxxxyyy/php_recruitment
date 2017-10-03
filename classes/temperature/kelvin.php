@@ -8,23 +8,32 @@ class Kelvin extends Temperature{
         $this->value = $value;
     }
     
+    function getValue() {
+        return $this->value;
+    }
+
+    function setValue($value) {
+        $this->value = $value;
+    }
+        
     public function convert($target) {
         switch($target){
             case "celsius";
                 return $this->value - 273.15;
                 break;
-            case "fahreinheit";
+            case "fahrenheit";
                 return $this->value * 9/5 -459.67;
                 break;
             default:
-                throw new Exception("Brak podanej jednostki temperatury");
+                throw new \Exception("Próbujesz przeliczyć te same jednostki");
         }
     }
 
     public function validate() {
-        if(trim($this->value) == ""){
-            throw new Exception("Pole nie może być puste");
-        }
+        parent::validate();
+        if($this->value < 0){
+            throw new \Exception("Skala stopni Kelvina nie może być niższa niż 0");
+        }   
     }
 
 }

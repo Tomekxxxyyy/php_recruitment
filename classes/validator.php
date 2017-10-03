@@ -1,19 +1,13 @@
 <?php
 namespace classes;
 
-class Converter{
+class Validator{
     private $temperature;
-    private $target;
     
-    public function __construct($temperature, $target){
+    public function __construct($temperature){
         $this->temperature = $temperature;
-        $this->target = $target;
     }
-    
-    function convert(){
-        return $this->temperature->convert($this->target);
-    }
-    
+        
     function getTemperature() {
         return $this->temperature;
     }
@@ -21,6 +15,10 @@ class Converter{
     function setTemperature($temperature) {
         $this->temperature = $temperature;
     }
+    
+    public function validate(){
+        $this->temperature->validate();
+    }    
 }
 ?>
 
