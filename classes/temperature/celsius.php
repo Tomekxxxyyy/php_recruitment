@@ -3,7 +3,7 @@ namespace classes\temperature;
 
 class Celsius extends Temperature{
     private $value;
-    
+      
     public function __construct($value){
         $this->value = $value;
     }
@@ -15,7 +15,7 @@ class Celsius extends Temperature{
     function setValue($value) {
         $this->value = $value;
     }
-        
+   
     public function convert($target) {
         switch($target){
             case "fahrenheit";
