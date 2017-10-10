@@ -21,6 +21,16 @@ class Converter{
     function setTemperature($temperature) {
         $this->temperature = $temperature;
     }
+    
+    function getTarget() {
+        return $this->target;
+    }
+
+    function setTarget($target) {
+        $this->target = $target;
+    }
+
+
 }
 ?>
 

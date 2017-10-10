@@ -3,6 +3,7 @@ namespace classes;
 
 class Validator{
     private $temperature;
+    static $exception;
     
     public function __construct($temperature){
         $this->temperature = $temperature;
